@@ -1,9 +1,12 @@
 package com.demoGuice.main;
 
+import com.demoGuice.modules.AppModules;
 import com.demoGuice.request.ShapeRequest;
 import com.demoGuice.services.DrawShape;
 import com.demoGuice.services.impl.DrawCircle;
 import com.demoGuice.services.impl.DrawSquare;
+import com.google.inject.Guice;
+import com.google.inject.Injector;
 
 public class GuiceDemoMain {
 
@@ -11,8 +14,11 @@ public class GuiceDemoMain {
 
     private static void sendRequest(String shape) {
         if(shape.equals(SHAPE_REQ)) {
-            DrawShape drawShape = new DrawCircle();
-            ShapeRequest shapeRequest = new ShapeRequest(drawShape);
+//            DrawShape drawShape = new DrawCircle();
+//            ShapeRequest shapeRequest = new ShapeRequest(drawShape);
+
+            Injector injector = Guice.createInjector(new AppModules());
+            ShapeRequest shapeRequest = injector.getInstance(ShapeRequest.class);
             shapeRequest.makeRequest();
         }
     }
