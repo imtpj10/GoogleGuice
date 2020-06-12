@@ -6,9 +6,9 @@ import com.google.inject.Inject;
 public class ShapeRequestSubClass extends ShapeRequest {
 
     @Inject
-    public ShapeRequestSubClass(DrawShape d) {
-        super(d);
-    }
+//    public ShapeRequestSubClass(DrawShape d) {
+//        super(d);
+//    }
 
 
     @Override

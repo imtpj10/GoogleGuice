@@ -7,9 +7,12 @@ public class ShapeRequest {
      DrawShape drawShape;
 
     @Inject
-    public ShapeRequest(DrawShape d) {
-        this.drawShape = d;
+    public void setDrawShape(DrawShape drawShape) {
+        this.drawShape = drawShape;
     }
+    //public ShapeRequest(DrawShape d) {
+    //    this.drawShape = d;
+    //}
 
     public DrawShape getDrawShape() {
         return drawShape;
