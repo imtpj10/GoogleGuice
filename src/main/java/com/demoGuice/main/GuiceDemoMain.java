@@ -18,7 +18,11 @@ public class GuiceDemoMain {
 //            ShapeRequest shapeRequest = new ShapeRequest(drawShape);
 
             Injector injector = Guice.createInjector(new AppModules());
-            ShapeRequest shapeRequest = injector.getInstance(ShapeRequest.class);
+
+            DrawShape drawShape = injector.getInstance(DrawShape.class);
+            ShapeRequest shapeRequest = new ShapeRequest(drawShape);
+
+            //ShapeRequest shapeRequest = injector.getInstance(ShapeRequest.class);
             shapeRequest.makeRequest();
         }
     }
