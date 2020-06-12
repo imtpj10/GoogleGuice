@@ -13,19 +13,26 @@ public class GuiceDemoMain {
     private static final String SHAPE_REQ = "SQUARE";
 
     private static void sendRequest(String shape) {
-        if(shape.equals(SHAPE_REQ)) {
-//            DrawShape drawShape = new DrawCircle();
-//            ShapeRequest shapeRequest = new ShapeRequest(drawShape);
+        if (shape.equals(SHAPE_REQ)) {
 
             Injector injector = Guice.createInjector(new AppModules());
+            ShapeRequest shapeRequest1 = injector.getInstance(ShapeRequest.class);
+            shapeRequest1.makeRequest();
 
-//            DrawShape drawShape = injector.getInstance(DrawShape.class);
-//            ShapeRequest shapeRequest = new ShapeRequest(drawShape);
+            ShapeRequest shapeRequest2 = injector.getInstance(ShapeRequest.class);
+            shapeRequest2.makeRequest();
 
-            ShapeRequest shapeRequest = injector.getInstance(ShapeRequest.class);
-            shapeRequest.makeRequest();
+
+
+            Boolean isEqual1 = shapeRequest1.getDrawShape() == shapeRequest2.getDrawShape();
+            System.out.println("Were both Drawshape same? "+isEqual1);
+
+            Boolean isEqual2 = shapeRequest1 == shapeRequest2;
+            System.out.println("Were both Drawshape same? "+isEqual2);
         }
     }
+
+
     public static void main(String[] args) {
         sendRequest(SHAPE_REQ);
     }

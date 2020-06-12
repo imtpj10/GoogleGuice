@@ -4,14 +4,18 @@ import com.demoGuice.services.DrawShape;
 import com.google.inject.Inject;
 
 public class ShapeRequest {
-     DrawShape d;
+     DrawShape drawShape;
 
     @Inject
     public ShapeRequest(DrawShape d) {
-        this.d = d;
+        this.drawShape = d;
+    }
+
+    public DrawShape getDrawShape() {
+        return drawShape;
     }
 
     public void makeRequest() {
-        d.drawShape();
+        drawShape.drawShape();
     }
 }

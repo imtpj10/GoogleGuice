@@ -10,9 +10,10 @@ public class ShapeRequestSubClass extends ShapeRequest {
         super(d);
     }
 
+
     @Override
     public void makeRequest() {
         System.out.println("This is subclass");
-        d.drawShape();
+        drawShape.drawShape();
     }
 }
