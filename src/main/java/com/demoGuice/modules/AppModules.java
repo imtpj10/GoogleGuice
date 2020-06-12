@@ -13,5 +13,7 @@ public class AppModules extends AbstractModule {
     protected void configure() {
         bind(DrawShape.class).to(DrawSquare.class);
         bind(ShapeRequest.class).to(ShapeRequestSubClass.class);
+        bind(String.class).toInstance("Red");
+        bind(Integer.class).toInstance(10);
     }
 }
